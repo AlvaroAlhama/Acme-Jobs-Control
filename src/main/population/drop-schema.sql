@@ -17,7 +17,7 @@
 
     alter table `application` 
        drop 
-       foreign key `FKge315cg5by8qehd79a5ubf83j`;
+       foreign key `FKtaxnyk5um71tfwvpd6yj0754`;
 
     alter table `audit_records` 
        drop 

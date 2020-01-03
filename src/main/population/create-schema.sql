@@ -47,7 +47,7 @@
         `status` integer,
         `job_id` integer not null,
         `worker_id` integer not null,
-        `xxxxapplication_id` integer,
+        `xxxx_application_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -463,8 +463,8 @@ create index IDXh9syauj4iixf18uts83saik5d on `request` (`ticker`);
        references `worker` (`id`);
 
     alter table `application` 
-       add constraint `FKge315cg5by8qehd79a5ubf83j` 
-       foreign key (`xxxxapplication_id`) 
+       add constraint `FKtaxnyk5um71tfwvpd6yj0754` 
+       foreign key (`xxxx_application_id`) 
        references `xxxx_application` (`id`);
 
     alter table `audit_records` 

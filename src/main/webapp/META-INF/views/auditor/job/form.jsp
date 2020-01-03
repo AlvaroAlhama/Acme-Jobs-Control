@@ -28,7 +28,7 @@
 			<acme:message code="auditor.xxxx.title"/>
 	
 			<acme:form-textbox code="auditor.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="true"/>
-			<acme:form-url code="auditor.job.form.linkInfo" path="xxxx.linkInfo" readonly="true"/>
+			<acme:form-url code="auditor.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
 		</jstl:if>
 			
 		<jstl:if test="${valid == true }">

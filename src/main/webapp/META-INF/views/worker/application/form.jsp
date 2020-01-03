@@ -18,6 +18,14 @@
 	<acme:form-textarea code="worker.application.form.skills" path="skills"/>
 	<acme:form-textarea code="worker.application.form.qualifications" path="qualifications"/>
 	
+	<!-- xxxxApplication -->
+	<acme:message code="worker.application.xxxxApplication"/>
+	<acme:form-textbox code="worker.application.form.answer" path="xxxxApplication.answer" readonly="${command != 'create'}"/>
+	<acme:form-textbox code="worker.application.form.xxxx" path="xxxxApplication.xxxx" readonly="${command != 'create'}"/>
+	<jstl:if test="${command == 'create'}">
+		<acme:form-password code="worker.application.form.password" path="xxxxApplication.password"/>
+	</jstl:if>
+	
 	<acme:form-submit test="${command == 'create'}" 
 	    code="worker.application.form.button.create" action="/worker/application/create?jobId=${jobId}"/>
 	    

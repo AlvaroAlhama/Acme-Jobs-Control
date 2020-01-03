@@ -757,6 +757,18 @@
  		<property name="job" ref="job1"/> 		
  	</bean>
  	
+ 	<!-- XxxxApplication -->
+ 	<bean name="xxxxApplication1" class="acme.entities.jobs.XxxxApplication">
+ 		<property name="answer" value="This isn't a challenge"/>
+ 		<property name="xxxx" value="xxxx"/>
+ 		<property name="password" value="123ABCabc???"/>
+ 	</bean>
+ 	<bean name="xxxxApplication2" class="acme.entities.jobs.XxxxApplication">
+ 		<property name="answer" value="This is a challenge"/>
+ 		<property name="xxxx" value="xxxx"/>
+ 		<property name="password" value="123ABCabc???"/>
+ 	</bean>
+ 	
  	<!-- Applications -->
 	<bean name="application1" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP1-JOB1:WORK1"/>
@@ -767,6 +779,7 @@
 		<property name="qualifications" value="Lorem ipsum sit dolor amet"/>
 		<property name="worker" ref="worker1Worker"/>
 		<property name="job" ref="job1"/>
+		<property name="xxxxApplication" ref="xxxxApplication1"/>
 	</bean>
 	<bean name="application2" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP1-JOB1:WORK2"/>
@@ -777,6 +790,7 @@
 		<property name="qualifications" value="Lorem ipsum sit dolor amet"/>
 		<property name="worker" ref="worker2Worker"/>
 		<property name="job" ref="job1"/>
+		<property name="xxxxApplication" ref="xxxxApplication2"/>
 	</bean>
 	<bean name="application3" class="acme.entities.jobs.Application">
 		<property name="reference" value="EMP2-JOB4:WORK1"/>

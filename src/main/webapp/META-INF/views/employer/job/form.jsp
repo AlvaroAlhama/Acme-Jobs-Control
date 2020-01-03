@@ -41,7 +41,12 @@
 		<acme:message code="employer.xxxx.title"/>
 	
 		<acme:form-textbox code="employer.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="${command != 'create'}"/>
-		<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" readonly="${command != 'create'}"/>
+		<jstl:if test="${command == 'create'}">
+			<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" readonly="false"/>
+		</jstl:if>
+		<jstl:if test="${command != 'create'}">
+			<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
+		</jstl:if>
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'create'}" 

@@ -71,6 +71,6 @@ public class Application extends DomainEntity {
 
 	@Valid
 	@OneToOne(optional = true)
-	private XxxxApplication		xxxxapplication;
+	private XxxxApplication		xxxxApplication;
 
 }

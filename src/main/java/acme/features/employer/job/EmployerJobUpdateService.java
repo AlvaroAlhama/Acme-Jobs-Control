@@ -70,6 +70,9 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 			workers = this.repository.findWorkersByJob(request.getModel().getInteger("id"));
 			boolean haveApplications = workers.size() > 0 ? true : false;
 			request.getModel().setAttribute("haveApplications", haveApplications);
+			Integer i = this.repository.findXxxxByJob(request.getModel().getInteger("id"));
+			boolean haveXxxx = i != 0;
+			request.getModel().setAttribute("haveXxxx", haveXxxx);
 		}
 	}
 

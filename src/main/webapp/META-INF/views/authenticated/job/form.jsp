@@ -25,7 +25,7 @@
 		<acme:message code="authenticated.xxxx.title"/>
 	
 		<acme:form-textbox code="authenticated.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="true"/>
-		<acme:form-url code="authenticated.job.form.linkInfo" path="xxxx.linkInfo" readonly="true"/>
+		<acme:form-url code="authenticated.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
 	</jstl:if>
 	
 	<acme:form-return code="authenticated.job.form.return"/>	

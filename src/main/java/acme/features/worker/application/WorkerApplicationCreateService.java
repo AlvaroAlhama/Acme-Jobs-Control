@@ -10,6 +10,7 @@ import acme.entities.jobs.Application;
 import acme.entities.jobs.ApplicationStatus;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.Status;
+import acme.entities.jobs.XxxxApplication;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
 import acme.framework.components.HttpMethod;
@@ -58,6 +59,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	@Override
 	public Application instantiate(final Request<Application> request) {
 		Application result = new Application();
+		XxxxApplication xxxxApplication = new XxxxApplication();
 
 		int jobId = request.getModel().getInteger("jobId");
 		Job job = this.repository.findOneJobById(jobId);
@@ -70,6 +72,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		result.setSkills(worker.getSkills());
 		result.setWorker(worker);
 		result.setStatus(ApplicationStatus.PENDING);
+		result.setXxxxApplication(xxxxApplication);
 
 		return result;
 	}
@@ -108,6 +111,19 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 	public void create(final Request<Application> request, final Application entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (!request.getModel().getString("xxxxApplication.answer").trim().isEmpty()) {
+			XxxxApplication xxxxApplication = new XxxxApplication();
+			xxxxApplication.setAnswer(request.getModel().getString("xxxxApplication.answer"));
+			xxxxApplication.setXxxx(request.getModel().getString("xxxxApplication.xxxx"));
+			xxxxApplication.setPassword(request.getModel().getString("xxxxApplication.password"));
+
+			this.repository.save(xxxxApplication);
+
+			entity.setXxxxApplication(xxxxApplication);
+		} else {
+			entity.setXxxxApplication(null);
+		}
 
 		Date moment;
 		moment = new Date(System.currentTimeMillis() - 1);
