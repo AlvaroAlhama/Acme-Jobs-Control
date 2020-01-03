@@ -4,6 +4,7 @@ auditor.job.list.label.title = Título
 auditor.job.list.label.employer = Empleador
 
 auditor.job.employer = <h3> Empleador </h3>
+auditor.xxxx.title = <h3> Xxxx (opcional) </h3>
 auditor.job.form.employer = Usuario
 auditor.job.form.reference = Referencia
 auditor.job.form.deadline = Fecha de vencimiento
@@ -13,6 +14,8 @@ auditor.job.form.moreInfo = Más información
 auditor.job.form.status = Estado
 
 auditor.job.form.description = Descripción
+auditor.job.form.pieceOfText = Pieza de texto
+auditor.job.form.linkInfo = Enlace de información
 
 auditor.job.form.return = Volver
 auditor.job.redirect.create = Escribir un Historial de Auditoría

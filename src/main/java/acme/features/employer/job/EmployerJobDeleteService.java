@@ -10,6 +10,7 @@ import acme.entities.auditRecords.AuditRecords;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Xxxx;
 import acme.entities.roles.Employer;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
@@ -101,6 +102,7 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 		assert entity != null;
 
 		Descriptor descriptor;
+		Xxxx xxxx;
 		Collection<Duty> duties;
 		Collection<AuditRecords> auditRecords;
 		int jobId;
@@ -123,6 +125,11 @@ public class EmployerJobDeleteService implements AbstractDeleteService<Employer,
 			for (AuditRecords a : auditRecords) {
 				this.repository.delete(a);
 			}
+		}
+
+		xxxx = this.repository.findOneXxxxByJobId(jobId);
+		if (xxxx != null) {
+			this.repository.delete(xxxx);
 		}
 
 		this.repository.delete(entity);

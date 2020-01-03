@@ -49,7 +49,7 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline");
-		request.unbind(entity, model, "salary", "moreInfo", "status");
+		request.unbind(entity, model, "salary", "moreInfo", "status", "xxxx.pieceOfText", "xxxx.linkInfo");
 
 		if (request.isMethod(HttpMethod.GET)) {
 
@@ -60,6 +60,9 @@ public class EmployerJobShowService implements AbstractShowService<Employer, Job
 			workers = this.repository.findWorkersByJob(request.getModel().getInteger("id"));
 			boolean haveApplications = workers.size() > 0 ? true : false;
 			model.setAttribute("haveApplications", haveApplications);
+			Integer i = this.repository.findXxxxByJob(request.getModel().getInteger("id"));
+			boolean haveXxxx = i != 0;
+			model.setAttribute("haveXxxx", haveXxxx);
 		}
 	}
 

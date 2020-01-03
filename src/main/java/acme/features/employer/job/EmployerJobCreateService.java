@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.Status;
+import acme.entities.jobs.Xxxx;
 import acme.entities.roles.Employer;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
@@ -53,12 +54,15 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		result = new Job();
 		Employer employer;
 		employer = new Employer();
+		Xxxx xxxx;
+		xxxx = new Xxxx();
 
 		int idEmployer = request.getPrincipal().getActiveRoleId();
 		employer = this.repository.findOneEmployerById(idEmployer);
 
 		result.setEmployer(employer);
 		result.setStatus(Status.DRAFT);
+		result.setXxxx(xxxx);
 
 		return result;
 	}
@@ -69,7 +73,7 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 		assert entity != null;
 		assert errors != null;
 
-		boolean isAfter, uniqueReference, inEuros, positive, descriptionNotBlank;
+		boolean isAfter, uniqueReference, inEuros, positive, descriptionNotBlank, pieceOfTextBlank;
 
 		//Deadline
 		if (!errors.hasErrors("deadline")) {
@@ -98,12 +102,32 @@ public class EmployerJobCreateService implements AbstractCreateService<Employer,
 				errors.add("description", errorMsg);
 			}
 		}
+		//Xxxx
+		if (!errors.hasErrors("xxxx.pieceOfText")) {
+			if (!request.getModel().getString("xxxx.linkInfo").trim().isEmpty()) {
+				pieceOfTextBlank = !request.getModel().getString("xxxx.pieceOfText").trim().isEmpty();
+				errors.state(request, pieceOfTextBlank, "xxxx.pieceOfText", "employer.job.form.error.pieceOfTextBlank");
+			}
+		}
+
 	}
 
 	@Override
 	public void create(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (!request.getModel().getString("xxxx.pieceOfText").trim().isEmpty()) {
+			Xxxx xxxx = new Xxxx();
+			xxxx.setPieceOfText(request.getModel().getString("xxxx.pieceOfText"));
+			xxxx.setLinkInfo(request.getModel().getString("xxxx.linkInfo"));
+
+			this.repository.save(xxxx);
+
+			entity.setXxxx(xxxx);
+		} else {
+			entity.setXxxx(null);
+		}
 
 		this.repository.save(entity);
 

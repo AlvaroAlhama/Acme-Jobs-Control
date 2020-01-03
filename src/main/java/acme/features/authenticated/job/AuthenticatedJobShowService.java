@@ -33,10 +33,13 @@ public class AuthenticatedJobShowService implements AbstractShowService<Authenti
 		assert model != null;
 
 		request.unbind(entity, model, "reference", "title", "deadline", "employer.userAccount.username");
-		request.unbind(entity, model, "salary", "moreInfo", "status");
+		request.unbind(entity, model, "salary", "moreInfo", "status", "xxxx.pieceOfText", "xxxx.linkInfo");
 
 		String description = this.repository.findOneDescriptorById(request.getModel().getInteger("id")).getDescription();
 		model.setAttribute("description", description);
+		Integer i = this.repository.findXxxxByJob(request.getModel().getInteger("id"));
+		boolean haveXxxx = i != 0;
+		model.setAttribute("haveXxxx", haveXxxx);
 	}
 
 	@Override

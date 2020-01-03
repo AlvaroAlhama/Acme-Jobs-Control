@@ -1,5 +1,6 @@
 auditor.job.title = <h3> Trabajo </h3>
 auditor.descriptor.title = <h3> Descriptor </h3>
+employer.xxxx.title = <h3> Xxxx (opcional) </h3>
 
 employer.job.list.label.reference = Referencia
 employer.job.list.label.deadline = Fecha de vencimiento
@@ -16,6 +17,9 @@ employer.job.form.status = Estado
 employer.job.form.description = Descripción
 authenticated.job.form.status.draft = Borrador
 authenticated.job.form.status.published = Publicado
+
+employer.job.form.pieceOfText = Pieza de texto
+employer.job.form.linkInfo = Enlace de información
 
 employer.job.form.button.create = Crear
 employer.job.form.button.update = Actualizar
@@ -38,3 +42,4 @@ employer.job.form.error.salary-not-positive = El salario debe ser 0 o mayor
 employer.job.form.error.dont-have-descriptor = El trabajo debe tener un descriptor para ser guardado como publicado
 employer.job.form.error.duties-100 = Los deberes deben sumar un 100% en total
 employer.job.form.error.isSpam = No puede ser publicado si es considerado Spam
+employer.job.form.error.pieceOfTextBlank = La pieza de texto no puede estar vacía

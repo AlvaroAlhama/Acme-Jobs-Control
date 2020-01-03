@@ -23,6 +23,13 @@
 		<acme:message code="auditor.descriptor.title"/>
 		
 		<acme:form-textarea code="auditor.job.form.description" path="description" readonly="true"/>
+		
+		<jstl:if test="${haveXxxx}">
+			<acme:message code="auditor.xxxx.title"/>
+	
+			<acme:form-textbox code="auditor.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="true"/>
+			<acme:form-url code="auditor.job.form.linkInfo" path="xxxx.linkInfo" readonly="true"/>
+		</jstl:if>
 			
 		<jstl:if test="${valid == true }">
 			<acme:redirect-button code="auditor.job.redirect.create" action="/auditor/audit-records/create?jobId=${id}"/>

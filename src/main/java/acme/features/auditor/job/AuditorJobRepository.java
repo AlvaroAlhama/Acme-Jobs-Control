@@ -26,6 +26,9 @@ public interface AuditorJobRepository extends AbstractRepository {
 	@Query("select j from Job j WHERE j.id = ?1")
 	Job findOne(int auditRecordId);
 
+	@Query("select count(j.xxxx) from Job j where j.id = ?1")
+	Integer findXxxxByJob(int jobId);
+
 	@Query("select count(a) from AuditRecords a WHERE a.job.id = ?1 AND a.auditor.id = ?2")
 	Integer checkIfAuditRecordExist(int jobId, int auditorId);
 

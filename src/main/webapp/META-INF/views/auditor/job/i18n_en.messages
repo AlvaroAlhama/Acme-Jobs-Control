@@ -4,6 +4,7 @@ auditor.job.list.label.title = Title
 auditor.job.list.label.employer = Employer
 
 auditor.job.employer = <h3> Employer </h3>
+auditor.xxxx.title = <h3> Xxxx (optional) </h3>
 auditor.job.form.employer = Username
 auditor.job.form.reference = Reference
 auditor.job.form.deadline = Deadline
@@ -13,6 +14,9 @@ auditor.job.form.moreInfo = More Info
 auditor.job.form.status = Status
 
 auditor.job.form.description = Description
+
+auditor.job.form.pieceOfText = Piece of text
+auditor.job.form.linkInfo = Information link
 
 auditor.job.form.return = Return
 auditor.job.redirect.create = Write Audit Record

@@ -23,4 +23,7 @@ public interface AuthenticatedJobRepository extends AbstractRepository {
 	@Query("select j from Descriptor j where j.job.id = ?1")
 	Descriptor findOneDescriptorById(int jobId);
 
+	@Query("select count(j.xxxx) from Job j where j.id = ?1")
+	Integer findXxxxByJob(int jobId);
+
 }

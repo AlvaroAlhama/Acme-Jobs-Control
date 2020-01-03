@@ -1,5 +1,6 @@
 auditor.job.title =  <h3> Job </h3>
 auditor.descriptor.title = <h3> Descriptor </h3>
+employer.xxxx.title = <h3> Xxxx (optional) </h3>
 
 employer.job.list.label.reference = Reference
 employer.job.list.label.deadline = Deadline
@@ -16,6 +17,9 @@ employer.job.form.status = Status
 employer.job.form.description = Description
 authenticated.job.form.status.draft = Draft
 authenticated.job.form.status.published = Published
+
+employer.job.form.pieceOfText = Piece of text
+employer.job.form.linkInfo = Information link
 
 employer.job.form.button.create = Create
 employer.job.form.button.update = Update
@@ -38,3 +42,4 @@ employer.job.form.error.salary-not-positive = The salary must be 0 or greater
 employer.job.form.error.dont-have-descriptor = The Job must have a Descriptor to be saved as Published
 employer.job.form.error.duties-100 = The duties must add up to 100%
 employer.job.form.error.isSpam = The job can not be published if it is considered Spam
+employer.job.form.error.pieceOfTextBlank = The piece of text mustn't be empty

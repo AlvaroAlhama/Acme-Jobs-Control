@@ -1,5 +1,6 @@
 auditor.job.title =  <h3> Trabajo </h3>
 auditor.descriptor.title = <h3> Descriptor </h3>
+authenticated.xxxx.title = <h3> Xxxx (opcional) </h3>
 
 authenticated.job.list.label.reference = Referencia
 authenticated.job.list.label.deadline = Deadline
@@ -15,6 +16,9 @@ authenticated.job.form.salary = Salario
 authenticated.job.form.moreInfo = Más información
 authenticated.job.form.description = Descripción
 authenticated.job.form.status = Estado
+
+authenticated.job.form.pieceOfText = Pieza de texto
+authenticated.job.form.linkInfo = Enlace de información
 
 authenticated.job.form.return = Volver
 authenticated.job.redirect.duties = Deberes

@@ -11,6 +11,7 @@ import acme.entities.customisationParameters.CustomisationParameters;
 import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
+import acme.entities.jobs.Xxxx;
 import acme.entities.roles.Employer;
 import acme.entities.roles.Worker;
 import acme.framework.repositories.AbstractRepository;
@@ -32,6 +33,12 @@ public interface EmployerJobRepository extends AbstractRepository {
 
 	@Query("select a.worker from Application a where a.job.id = ?1")
 	Collection<Worker> findWorkersByJob(int jobId);
+
+	@Query("select count(j.xxxx) from Job j where j.id = ?1")
+	Integer findXxxxByJob(int jobId);
+
+	@Query("select j.xxxx from Job j where j.id = ?1")
+	Xxxx findOneXxxxByJobId(int jobId);
 
 	@Query("select d from Duty d where d.descriptor.id = ?1")
 	Collection<Duty> findManyDutiesByDescriptorId(int descriptorId);

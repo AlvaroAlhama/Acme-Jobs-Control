@@ -47,6 +47,7 @@
         `status` integer,
         `job_id` integer not null,
         `worker_id` integer not null,
+        `xxxxapplication_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -232,6 +233,7 @@
         `status` integer,
         `title` varchar(255),
         `employer_id` integer not null,
+        `xxxx_id` integer,
         primary key (`id`)
     ) engine=InnoDB;
 
@@ -375,6 +377,23 @@
         primary key (`id`)
     ) engine=InnoDB;
 
+    create table `xxxx` (
+       `id` integer not null,
+        `version` integer not null,
+        `link_info` varchar(255),
+        `piece_of_text` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
+    create table `xxxx_application` (
+       `id` integer not null,
+        `version` integer not null,
+        `answer` varchar(255),
+        `password` varchar(255),
+        `xxxx` varchar(255),
+        primary key (`id`)
+    ) engine=InnoDB;
+
     create table `hibernate_sequence` (
        `next_val` bigint
     ) engine=InnoDB;
@@ -417,6 +436,9 @@ create index IDXcp4664f36sgqsd0ihmirt0w0 on `offer` (`ticker`);
 create index IDXlrvsw21ylkdqa1shrkwg1yssx on `request` (`deadline`);
 create index IDXh9syauj4iixf18uts83saik5d on `request` (`ticker`);
 
+    alter table `request` 
+       add constraint UK_9mxq3powq8tqctclj0fbi2nih unique (`ticker`);
+
     alter table `user_account` 
        add constraint UK_castjbvpeeus0r8lbpehiu0e4 unique (`username`);
 
@@ -439,6 +461,11 @@ create index IDXh9syauj4iixf18uts83saik5d on `request` (`ticker`);
        add constraint `FKmbjdoxi3o93agxosoate4sxbt` 
        foreign key (`worker_id`) 
        references `worker` (`id`);
+
+    alter table `application` 
+       add constraint `FKge315cg5by8qehd79a5ubf83j` 
+       foreign key (`xxxxapplication_id`) 
+       references `xxxx_application` (`id`);
 
     alter table `audit_records` 
        add constraint `FKl6b73crbwej8f95bvp1npqm8p` 
@@ -504,6 +531,11 @@ create index IDXh9syauj4iixf18uts83saik5d on `request` (`ticker`);
        add constraint `FK3rxjf8uh6fh2u990pe8i2at0e` 
        foreign key (`employer_id`) 
        references `employer` (`id`);
+
+    alter table `job` 
+       add constraint `FKag95kov9qvw4wnpeuxg448lme` 
+       foreign key (`xxxx_id`) 
+       references `xxxx` (`id`);
 
     alter table `message` 
        add constraint `FKn4cg0xtxxw96f3n2ba6k1epnq` 

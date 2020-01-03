@@ -579,6 +579,15 @@
  		<property name="userAccount" ref="auditor2UserAccount"/>
  	</bean>
  	
+ 	<!-- Xxxx -->
+ 	<bean name = "xxxx1" class = "acme.entities.jobs.Xxxx">
+ 		<property name = "pieceOfText" value = "This is a joke"/>
+ 		<property name = "linkInfo" value = "http://www.joke.com"/>
+ 	</bean>
+ 	
+ 	<bean name = "xxxx2" class = "acme.entities.jobs.Xxxx">
+ 		<property name = "pieceOfText" value = "This is a joke"/>
+ 	</bean>
  	
  	<!-- Job -->
  	<bean name = "job1" class = "acme.entities.jobs.Job">
@@ -589,6 +598,7 @@
  		<property name = "moreInfo" value = "http://www.example.com"/>
  		<property name = "status" value = "PUBLISHED"/>
  		<property name = "employer" ref = "employer1Employer"/>
+ 		<property name = "xxxx" ref = "xxxx1"/>
  	</bean>
  	
  	<bean name = "job2" class = "acme.entities.jobs.Job">
@@ -599,6 +609,7 @@
  		<property name = "moreInfo" value = "http://www.example.com"/>
  		<property name = "status" value = "DRAFT"/>
  		<property name = "employer" ref = "employer2Employer"/>
+ 		<property name = "xxxx" ref = "xxxx2"/>
  	</bean>
  	
  	<bean name = "job3" class = "acme.entities.jobs.Job">
