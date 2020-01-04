@@ -24,3 +24,6 @@ worker.application.form.error.uniqueReference = This reference is already taken.
 
 worker.published.error.not-published = This job is not published
 worker.deadline.error.deadlineElapsed = This job's deadline has elapsed
+
+worker.application.form.error.answerBlank = The answer can't be blank
+worker.application.form.error.xxxxBlank = The xxxx can't be blank

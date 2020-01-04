@@ -26,4 +26,10 @@ public interface WorkerApplicationRepository extends AbstractRepository {
 
 	@Query("select w from Worker w where w.id = ?1")
 	Worker findOneWorkerById(int workerId);
+
+	@Query("select count(j.xxxx) from Job j where j.id = ?1")
+	Integer findXxxxByJob(int jobId);
+
+	@Query("select count(a.xxxxApplication) from Application a where a.id = ?1")
+	Integer findXxxxApplicationByApplication(int applicationId);
 }

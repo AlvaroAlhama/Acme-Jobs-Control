@@ -2,10 +2,7 @@
 package acme.entities.jobs;
 
 import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
-
-import org.hibernate.validator.constraints.Length;
 
 import acme.framework.entities.DomainEntity;
 import lombok.Getter;
@@ -18,13 +15,11 @@ public class XxxxApplication extends DomainEntity {
 
 	private static final long	serialVersionUID	= 1L;
 
-	@NotBlank
 	private String				answer;
 
 	private String				xxxx;
 
-	@Length(min = 12)
-	@Pattern(regexp = "^(?=(?:[^\\p{Digit}]*[\\p{Digit}]){3,})(?=(?:[^\\p{Alpha}]*[\\p{Alpha}]){3,})(?=(?:[^\\p{Punct}\\\\¿¡´¨]*[\\p{Punct}\\\\¿¡´¨]){3,}).*")
+	@Pattern(regexp = "((^(?=[a-zA-Z0-9\\p{Punct}\\\\¿¡´¨]{10,}$)(?=(?:[^a-zA-Z]*[a-zA-Z]){3})(?=(?:[^0-9]*[0-9]){3})(?=(?:[^\\p{Punct}\\\\¿¡´¨]*[\\p{Punct}\\\\¿¡´¨]){3}).*)|^$)")
 	private String				password;
 
 }

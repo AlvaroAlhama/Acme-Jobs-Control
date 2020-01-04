@@ -53,6 +53,7 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("jobId", request.getModel().getInteger("jobId"));
+			model.setAttribute("haveXxxx", this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) != 0);
 		}
 	}
 
@@ -103,6 +104,31 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 			boolean uniqueReference;
 			uniqueReference = this.repository.findOneApplicationByReference(entity.getReference()) == null;
 			errors.state(request, uniqueReference, "reference", "worker.application.form.error.uniqueReference");
+		}
+		//xxxxApplication
+		if (!errors.hasErrors("xxxxApplication.password")) {
+			Boolean answerBlank = true;
+			Boolean xxxxBlank = true;
+			String answer = request.getModel().getString("xxxxApplication.answer");
+			String xxxx = request.getModel().getString("xxxxApplication.xxxx");
+
+			if (!request.getModel().getString("xxxxApplication.password").trim().isEmpty()) {
+				xxxxBlank = !xxxx.trim().isEmpty();
+				answerBlank = !answer.trim().isEmpty();
+			} else {
+				if (!xxxx.trim().isEmpty()) {
+					answerBlank = !answer.trim().isEmpty();
+				}
+			}
+			if (!answer.isEmpty()) {
+				answerBlank = !answer.trim().isEmpty();
+			}
+			if (!xxxx.isEmpty()) {
+				xxxxBlank = !xxxx.trim().isEmpty();
+			}
+
+			errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+			errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
 		}
 
 	}

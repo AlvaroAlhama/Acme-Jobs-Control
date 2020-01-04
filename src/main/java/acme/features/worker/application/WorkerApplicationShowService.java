@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import acme.entities.jobs.Application;
 import acme.entities.roles.Worker;
+import acme.framework.components.HttpMethod;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Principal;
@@ -43,7 +44,10 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "xxxxApplication.answer", "xxxxApplication.xxxx");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "xxxxApplication.answer");
+		if (request.isMethod(HttpMethod.GET)) {
+			model.setAttribute("haveXxxx", this.repository.findXxxxApplicationByApplication(request.getModel().getInteger("id")) != 0);
+		}
 	}
 
 	@Override

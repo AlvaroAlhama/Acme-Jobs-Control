@@ -24,3 +24,6 @@ worker.application.form.error.uniqueReference = Esta referencia ya está en uso
 
 worker.published.error.not-published = Ese trabajo no ha sido publicado
 worker.deadline.error.deadlineElapsed = La fecha límite de ese trabajo ha expirado
+
+worker.application.form.error.answerBlank = La respuesta no puede ser blanca
+worker.application.form.error.xxxxBlank = La xxxx no puede ser blanca
