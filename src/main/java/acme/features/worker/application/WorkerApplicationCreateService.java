@@ -106,29 +106,27 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 			errors.state(request, uniqueReference, "reference", "worker.application.form.error.uniqueReference");
 		}
 		//xxxxApplication
-		if (!errors.hasErrors("xxxxApplication.password")) {
-			Boolean answerBlank = true;
-			Boolean xxxxBlank = true;
-			String answer = request.getModel().getString("xxxxApplication.answer");
-			String xxxx = request.getModel().getString("xxxxApplication.xxxx");
+		String answer = request.getModel().getString("xxxxApplication.answer");
+		String xxxx = request.getModel().getString("xxxxApplication.xxxx");
+		String password = request.getModel().getString("xxxxApplication.password");
 
-			if (!request.getModel().getString("xxxxApplication.password").trim().isEmpty()) {
-				xxxxBlank = !xxxx.trim().isEmpty();
-				answerBlank = !answer.trim().isEmpty();
-			} else {
-				if (!xxxx.trim().isEmpty()) {
-					answerBlank = !answer.trim().isEmpty();
-				}
-			}
-			if (!answer.isEmpty()) {
-				answerBlank = !answer.trim().isEmpty();
-			}
-			if (!xxxx.isEmpty()) {
-				xxxxBlank = !xxxx.trim().isEmpty();
-			}
+		if (!password.isEmpty()) {
+			Boolean answerBlank = !answer.trim().isEmpty();
+			Boolean xxxxBlank = !xxxx.trim().isEmpty();
 
 			errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
 			errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
+		} else if (!xxxx.isEmpty()) {
+			Boolean answerBlank = !answer.trim().isEmpty();
+			Boolean xxxxBlank = !xxxx.trim().isEmpty();
+
+			errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+			errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
+		} else {
+			if (!answer.isEmpty()) {
+				Boolean answerBlank = !answer.trim().isEmpty();
+				errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+			}
 		}
 
 	}
@@ -142,8 +140,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 			XxxxApplication xxxxApplication = new XxxxApplication();
 			xxxxApplication.setAnswer(request.getModel().getString("xxxxApplication.answer"));
 			xxxxApplication.setXxxx(request.getModel().getString("xxxxApplication.xxxx"));
-			xxxxApplication.setPassword(request.getModel().getString("xxxxApplication.password"));
-
+			if (!request.getModel().getString("xxxxApplication.password").trim().isEmpty()) {
+				xxxxApplication.setPassword(request.getModel().getString("xxxxApplication.password"));
+			} else {
+				xxxxApplication.setPassword(null);
+			}
 			this.repository.save(xxxxApplication);
 
 			entity.setXxxxApplication(xxxxApplication);

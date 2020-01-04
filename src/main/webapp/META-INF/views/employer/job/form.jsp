@@ -38,15 +38,15 @@
 	<acme:form-textarea code="employer.job.form.description" path="description" readonly="${rdonly}"/>
 	
 	<jstl:if test="${haveXxxx || command == 'create'}">
-		<acme:message code="employer.xxxx.title"/>
-	
-		<acme:form-textbox code="employer.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="${command != 'create'}"/>
-		<jstl:if test="${command == 'create'}">
-			<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" readonly="false"/>
-		</jstl:if>
-		<jstl:if test="${command != 'create'}">
-			<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
-		</jstl:if>
+		<acme:form-panel code="employer.xxxx.title">
+			<acme:form-textbox code="employer.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="${command != 'create'}"/>
+			<jstl:if test="${command == 'create'}">
+				<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" readonly="false"/>
+			</jstl:if>
+			<jstl:if test="${command != 'create'}">
+				<acme:form-url code="employer.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
+			</jstl:if>
+		</acme:form-panel>
 	</jstl:if>
 	
 	<acme:form-submit test="${command == 'create'}" 

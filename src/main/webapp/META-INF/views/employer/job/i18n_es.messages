@@ -1,6 +1,6 @@
 auditor.job.title = <h3> Trabajo </h3>
 auditor.descriptor.title = <h3> Descriptor </h3>
-employer.xxxx.title = <h3> Xxxx (opcional) </h3>
+employer.xxxx.title = Xxxx (opcional)
 
 employer.job.list.label.reference = Referencia
 employer.job.list.label.deadline = Fecha de vencimiento

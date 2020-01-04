@@ -27,3 +27,10 @@ worker.deadline.error.deadlineElapsed = This job's deadline has elapsed
 
 worker.application.form.error.answerBlank = The answer can't be blank
 worker.application.form.error.xxxxBlank = The xxxx can't be blank
+worker.application.button.password = See Xxxx
+worker.application.xxxxApplication = XxxxApplication (optional)
+worker.application.form.answer = Answer
+worker.application.form.xxxx = Xxxx
+worker.application.form.password = Password
+worker.application.error.correctPassword = Correct Password
+worker.application.error.wrongPassword = Wrong Password
