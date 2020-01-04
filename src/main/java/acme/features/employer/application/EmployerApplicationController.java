@@ -38,6 +38,9 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 	@Autowired
 	private EmployerApplicationRejectService					rejectService;
 
+	@Autowired
+	private EmployerApplicationUpdateService					updateService;
+
 
 	@PostConstruct
 	private void initialise() {
@@ -55,6 +58,8 @@ public class EmployerApplicationController extends AbstractController<Employer, 
 		super.addCustomCommand(CustomCommand.ACCEPT_APPLICATION, BasicCommand.UPDATE, this.acceptService);
 
 		super.addCustomCommand(CustomCommand.REJECT_APPLICATION, BasicCommand.UPDATE, this.rejectService);
+
+		super.addBasicCommand(BasicCommand.UPDATE, this.updateService);
 	}
 
 }

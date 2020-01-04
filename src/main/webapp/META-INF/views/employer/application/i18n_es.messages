@@ -25,3 +25,14 @@ employer.applicaton.form.button.reject = Rechazar
 employer.application.form.return = Volver
 
 employer.application.error.justification-is-mandatory-when-rejecting = Es necesario justificar el rechazo
+
+employer.application.button.password = Ver Xxxx
+employer.application.xxxxApplication = XxxxApplication
+employer.application.form.answer = Respuesta
+employer.application.form.xxxx = Xxxx
+employer.application.form.password = Contraseña
+employer.application.error.correctPassword = Contraseña correcta
+employer.application.error.wrongPassword = Contraseña errónea
+employer.application.job.xxxx.title = Xxxx
+employer.application.form.job.pieceOfText = Pieza de texto
+employer.application.form.job.linkInfo = Enlace de información

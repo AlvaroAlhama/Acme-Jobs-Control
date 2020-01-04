@@ -54,6 +54,7 @@ public class EmployerApplicationRejectService implements AbstractUpdateService<E
 			ApplicationStatus status = application.getStatus();
 
 			request.getModel().setAttribute("appStatus", status);
+			request.getModel().setAttribute("havePassword", this.repository.findPasswordByApplication(request.getModel().getInteger("id")) != 0);
 		}
 
 		request.bind(entity, errors, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "worker.userAccount.identity.name", "worker.userAccount.identity.surname");
