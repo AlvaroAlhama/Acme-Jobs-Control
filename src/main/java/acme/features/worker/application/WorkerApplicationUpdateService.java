@@ -54,7 +54,8 @@ public class WorkerApplicationUpdateService implements AbstractUpdateService<Wor
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "xxxxApplication.answer");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "job.xxxx.pieceOfText", "job.xxxx.linkInfo",
+			"xxxxApplication.answer");
 
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("haveXxxx", this.repository.findXxxxApplicationByApplication(request.getModel().getInteger("id")) != 0);

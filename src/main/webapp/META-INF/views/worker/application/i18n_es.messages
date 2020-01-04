@@ -34,3 +34,6 @@ worker.application.form.xxxx = Xxxx
 worker.application.form.password = Contraseña
 worker.application.error.correctPassword = Contraseña correcta
 worker.application.error.wrongPassword = Contraseña errónea
+worker.application.job.xxxx.title = Xxxx
+worker.application.form.job.pieceOfText = Pieza de texto
+worker.application.form.job.linkInfo = Enlace de información

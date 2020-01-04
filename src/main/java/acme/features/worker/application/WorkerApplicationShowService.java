@@ -44,7 +44,8 @@ public class WorkerApplicationShowService implements AbstractShowService<Worker,
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "xxxxApplication.answer");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.reference", "job.title", "resolutionJustification", "resolutionMoment", "job.xxxx.pieceOfText", "job.xxxx.linkInfo",
+			"xxxxApplication.answer");
 		if (this.repository.findPasswordByApplication(request.getModel().getInteger("id")) == 0) {
 			request.unbind(entity, model, "xxxxApplication.xxxx");
 		}

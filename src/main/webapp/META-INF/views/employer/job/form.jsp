@@ -37,6 +37,7 @@
 	
 	<acme:form-textarea code="employer.job.form.description" path="description" readonly="${rdonly}"/>
 	
+	<!-- xxxx -->
 	<jstl:if test="${haveXxxx || command == 'create'}">
 		<acme:form-panel code="employer.xxxx.title">
 			<acme:form-textbox code="employer.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="${command != 'create'}"/>
