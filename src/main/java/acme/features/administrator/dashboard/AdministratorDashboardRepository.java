@@ -119,6 +119,7 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select count(j.xxxx.id)/count(j.id)*100.0 from Job j")
 	Double ratioJobsWithXxxx();
 
+	//select count(distinct a.job.id)/(select count(j.xxxx) from Job j)*100.0 from Application a where a.xxxxApplication.id IS NOT NULL Si no es cada challenge
 	@Query("select count(a.xxxxApplication)/(select count(j.xxxx) from Job j)*100.0 from Application a")
 	Double ratioXxxxWithXxxxApplication();
 

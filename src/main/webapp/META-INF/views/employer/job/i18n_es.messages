@@ -43,3 +43,4 @@ employer.job.form.error.dont-have-descriptor = El trabajo debe tener un descript
 employer.job.form.error.duties-100 = Los deberes deben sumar un 100% en total
 employer.job.form.error.isSpam = No puede ser publicado si es considerado Spam
 employer.job.form.error.pieceOfTextBlank = La pieza de texto no puede estar vacía
+employer.job.form.error.xxxxPieceOfTextBlank = La pieza de texto no puede estar vacía

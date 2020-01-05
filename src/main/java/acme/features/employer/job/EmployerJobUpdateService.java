@@ -16,6 +16,7 @@ import acme.entities.jobs.Descriptor;
 import acme.entities.jobs.Duty;
 import acme.entities.jobs.Job;
 import acme.entities.jobs.Status;
+import acme.entities.jobs.Xxxx;
 import acme.entities.roles.Employer;
 import acme.entities.roles.Worker;
 import acme.framework.components.Errors;
@@ -106,6 +107,13 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 		assert errors != null;
 
 		boolean isAfter, inEuros, positive, hasDescriptor, duties100, descriptionNotBlank, isSpam;
+		//Xxxx
+		if (entity.getXxxx() != null) {
+			if (!errors.hasErrors("xxxx.pieceOfText")) {
+				boolean pieceOfTextBlank = !request.getModel().getString("xxxx.pieceOfText").trim().isEmpty();
+				errors.state(request, pieceOfTextBlank, "xxxx.pieceOfText", "employer.job.form.error.xxxxPieceOfTextBlank");
+			}
+		}
 		//DEADLINE
 		if (!errors.hasErrors("deadline")) {
 
@@ -182,6 +190,14 @@ public class EmployerJobUpdateService implements AbstractUpdateService<Employer,
 	public void update(final Request<Job> request, final Job entity) {
 		assert request != null;
 		assert entity != null;
+
+		if (entity.getXxxx() != null) {
+			Xxxx x = entity.getXxxx();
+			x.setPieceOfText(request.getModel().getString("xxxx.pieceOfText"));
+			x.setLinkInfo(request.getModel().getString("xxxx.linkInfo"));
+
+			this.repository.save(x);
+		}
 
 		Descriptor d = this.repository.findOneDescriptorByJobId(entity.getId());
 		d.setDescription(request.getModel().getString("description"));

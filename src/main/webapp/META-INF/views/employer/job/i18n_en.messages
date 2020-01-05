@@ -43,3 +43,4 @@ employer.job.form.error.dont-have-descriptor = The Job must have a Descriptor to
 employer.job.form.error.duties-100 = The duties must add up to 100%
 employer.job.form.error.isSpam = The job can not be published if it is considered Spam
 employer.job.form.error.pieceOfTextBlank = The piece of text mustn't be empty
+employer.job.form.error.xxxxPieceOfTextBlank = The piece of text mustn't be empty
