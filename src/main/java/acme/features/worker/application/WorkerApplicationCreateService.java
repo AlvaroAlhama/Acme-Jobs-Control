@@ -157,6 +157,8 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 				this.repository.save(xxxxApplication);
 
 				entity.setXxxxApplication(xxxxApplication);
+			} else {
+				entity.setXxxxApplication(null);
 			}
 		} else {
 			entity.setXxxxApplication(null);
