@@ -36,3 +36,4 @@ employer.application.error.wrongPassword = Contraseña errónea
 employer.application.job.xxxx.title = Xxxx
 employer.application.form.job.pieceOfText = Pieza de texto
 employer.application.form.job.linkInfo = Enlace de información
+employer.application.form.havePassword = ¿Tiene contraseña?

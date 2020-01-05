@@ -36,3 +36,4 @@ employer.application.error.wrongPassword = Wrong Password
 employer.application.job.xxxx.title = Xxxx
 employer.application.form.job.pieceOfText = Piece of text
 employer.application.form.job.linkInfo = Information link
+employer.application.form.havePassword = Have password?

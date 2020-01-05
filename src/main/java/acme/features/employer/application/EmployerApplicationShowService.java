@@ -47,7 +47,7 @@ public class EmployerApplicationShowService implements AbstractShowService<Emplo
 		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "resolutionJustification", "resolutionMoment", "job.reference", "job.title", "worker.userAccount.identity.name",
 			"worker.userAccount.identity.surname", "job.xxxx.pieceOfText", "job.xxxx.linkInfo", "xxxxApplication.answer");
 
-		if (this.repository.findPasswordByApplication(request.getModel().getInteger("id")) == 0) {
+		if (this.repository.findXxxxApplicationByApplication(request.getModel().getInteger("id")) != 0) {
 			request.unbind(entity, model, "xxxxApplication.xxxx");
 		}
 		if (request.isMethod(HttpMethod.GET)) {

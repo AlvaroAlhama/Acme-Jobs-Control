@@ -31,15 +31,8 @@
 	<acme:form-hidden path="haveXxxx"/>
 		<acme:form-panel code="employer.application.xxxxApplication">
 		<acme:form-textbox code="employer.application.form.answer" path="xxxxApplication.answer" readonly="true"/>
-		<jstl:if test="${(!havePassword && command == 'show') || (correctPassword && command == 'update') || (!havePassword && command == 'reject-application')}">
-			<acme:form-textbox code="employer.application.form.xxxx" path="xxxxApplication.xxxx" readonly="true"/>
-		</jstl:if>
-		<jstl:if test="${(havePassword && command == 'show') || (wrongPassword && command == 'update') || (havePassword && command == 'reject-application')}">
-			<acme:form-password code="employer.application.form.password" path="xxxxApplication.password"/>
-		</jstl:if>
-		<jstl:if test="${(havePassword && command == 'show') || (wrongPassword && command == 'update') || (havePassword && command == 'reject-application')}">
-			<acme:form-submit code="employer.application.button.password" action="/employer/application/update"/>
-		</jstl:if>
+		<acme:form-textbox code="employer.application.form.xxxx" path="xxxxApplication.xxxx" readonly="true"/>
+		<acme:form-checkbox code="employer.application.form.havePassword" path="havePassword" readonly="true"/>
 		</acme:form-panel>
 	</jstl:if>
 	
