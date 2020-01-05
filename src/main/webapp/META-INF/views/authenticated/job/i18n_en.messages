@@ -1,6 +1,6 @@
 auditor.job.title =  <h3> Job </h3>
 auditor.descriptor.title = <h3> Descriptor </h3>
-authenticated.xxxx.title = <h3> Xxxx (optional) </h3>
+authenticated.xxxx.title = Xxxx
 
 authenticated.job.list.label.reference = Reference
 authenticated.job.list.label.deadline = Deadline

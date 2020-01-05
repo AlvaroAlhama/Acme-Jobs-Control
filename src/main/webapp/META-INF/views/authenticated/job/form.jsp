@@ -22,10 +22,10 @@
 	<acme:form-textarea code="authenticated.job.form.description" path="description"/>
 	
 	<jstl:if test="${haveXxxx}">
-		<acme:message code="authenticated.xxxx.title"/>
-	
-		<acme:form-textbox code="authenticated.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="true"/>
-		<acme:form-url code="authenticated.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
+		<acme:form-panel code="authenticated.xxxx.title">
+			<acme:form-textbox code="authenticated.job.form.pieceOfText" path="xxxx.pieceOfText" readonly="true"/>
+			<acme:form-url code="authenticated.job.form.linkInfo" path="xxxx.linkInfo" placeholder="" readonly="true"/>
+		</acme:form-panel>
 	</jstl:if>
 	
 	<acme:form-return code="authenticated.job.form.return"/>	

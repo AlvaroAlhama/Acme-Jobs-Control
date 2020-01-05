@@ -26,3 +26,7 @@ administrator.dashboard.form.label.job = "Jobs"
 administrator.dashboard.form.label.accepted = "Accepted Applications"
 administrator.dashboard.form.label.pending = "Pending Applications"
 administrator.dashboard.form.label.rejected = "Rejected Applications"
+
+administrator.dashboard.form.label.jobsWithXxxx = Ratio of jobs with xxxx
+administrator.dashboard.form.label.xxxxWithXxxxApplication = Ratio of xxxx with xxxxApplication
+administrator.dashboard.form.label.applicationWithXxxxPassword = Ratio of application with xxxxApplication protected

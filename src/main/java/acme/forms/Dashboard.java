@@ -52,4 +52,9 @@ public class Dashboard implements Serializable {
 	Integer						sizeRejected;
 
 	Integer						maxGraph;
+
+	//Control
+	String						jobsWithXxxx;
+	String						xxxxWithXxxxApplication;
+	String						applicationWithXxxxPassword;
 }

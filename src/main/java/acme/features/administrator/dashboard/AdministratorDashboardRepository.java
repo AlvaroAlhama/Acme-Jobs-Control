@@ -114,4 +114,15 @@ public interface AdministratorDashboardRepository extends AbstractRepository {
 	@Query("select avg(select count(a) from Application a where a.worker.id = w.id) from Worker w")
 	Double avgNumberApplicationsPerWorker();
 
+	//Control
+
+	@Query("select count(j.xxxx.id)/count(j.id)*100.0 from Job j")
+	Double ratioJobsWithXxxx();
+
+	@Query("select count(a.xxxxApplication)/(select count(j.xxxx) from Job j)*100.0 from Application a")
+	Double ratioXxxxWithXxxxApplication();
+
+	@Query("select count(x.password)/(select count(a.id) from Application a)*100.0 from XxxxApplication x")
+	Double ratioApplicationsWithXxxxApplication();
+
 }

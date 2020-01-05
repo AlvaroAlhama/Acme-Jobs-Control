@@ -26,3 +26,7 @@ administrator.dashboard.form.label.job = "Trabajos"
 administrator.dashboard.form.label.accepted = "Aplicaciones Aceptadas"
 administrator.dashboard.form.label.pending = "Aplicaciones Pendientes"
 administrator.dashboard.form.label.rejected = "Aplicaciones Rechazadas"
+
+administrator.dashboard.form.label.jobsWithXxxx = Porcentaje de trabajos con xxxx
+administrator.dashboard.form.label.xxxxWithXxxxApplication = Porcentaje de xxxx con xxxxApplication
+administrator.dashboard.form.label.applicationWithXxxxPassword = Porcentaje de aplicaciones con xxxxApplication protegido

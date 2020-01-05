@@ -40,7 +40,8 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 
 		request.unbind(entity, model, "gridLabels", "dataInvestor", "dataCompany", "statusApplicationLabels", "statusJobLabels", "dataJob", "dataApplication", "pendingApplicationData", "pendingApplicationLabels", "sizePending", "acceptedApplicationData",
 			"acceptedApplicationLabels", "sizeAccepted", "maxGraph", "numberAnnouncement", "rejectedApplicationData", "rejectedApplicationLabels", "sizeRejected", "numberCompanyRecords", "numberInvestorRecord", "minimunRewardOffer", "maximunRewardOffer",
-			"averageRewardOffer", "minimunRewardRequest", "maximunRewardRequest", "averageRewardRequest", "stdRequest", "stdOffer", "avgNumberJobsPerEmployer", "avgNumberApplicationsPerEmployer", "avgNumberApplicationsPerWorker");
+			"averageRewardOffer", "minimunRewardRequest", "maximunRewardRequest", "averageRewardRequest", "stdRequest", "stdOffer", "avgNumberJobsPerEmployer", "avgNumberApplicationsPerEmployer", "avgNumberApplicationsPerWorker", "jobsWithXxxx",
+			"xxxxWithXxxxApplication", "applicationWithXxxxPassword");
 	}
 
 	@SuppressWarnings("deprecation")
@@ -217,6 +218,15 @@ public class AdministratorDashboardShowService implements AbstractShowService<Ad
 		result.setDataJob(this.repository.dataJob());
 
 		result.setDataApplication(this.repository.dataApplication());
+
+		//Control
+
+		Double jobsWithXxxx = this.repository.ratioJobsWithXxxx() != null ? this.repository.ratioJobsWithXxxx() : 0.;
+		result.setJobsWithXxxx(jobsWithXxxx + "%");
+		Double xxxxWithXxxxApplication = this.repository.ratioXxxxWithXxxxApplication() != null ? this.repository.ratioXxxxWithXxxxApplication() : 0.;
+		result.setXxxxWithXxxxApplication(xxxxWithXxxxApplication + "%");
+		Double applicationWithXxxxApplication = this.repository.ratioApplicationsWithXxxxApplication() != null ? this.repository.ratioApplicationsWithXxxxApplication() : 0.;
+		result.setApplicationWithXxxxPassword(applicationWithXxxxApplication + "%");
 
 		return result;
 	}

@@ -49,8 +49,11 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications", "job.xxxx.pieceOfText", "job.xxxx.linkInfo");
+		request.unbind(entity, model, "reference", "moment", "status", "statement", "skills", "qualifications");
 
+		if (this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) != 0) {
+			request.unbind(entity, model, "job.xxxx.pieceOfText", "job.xxxx.linkInfo");
+		}
 		if (request.isMethod(HttpMethod.GET)) {
 			model.setAttribute("jobId", request.getModel().getInteger("jobId"));
 			model.setAttribute("haveXxxx", this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) != 0);
@@ -64,6 +67,9 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 
 		int jobId = request.getModel().getInteger("jobId");
 		Job job = this.repository.findOneJobById(jobId);
+		if (this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) == 0) {
+			job.setXxxx(null);
+		}
 		result.setJob(job);
 
 		int workerId = request.getPrincipal().getActiveRoleId();
@@ -106,26 +112,28 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 			errors.state(request, uniqueReference, "reference", "worker.application.form.error.uniqueReference");
 		}
 		//xxxxApplication
-		String answer = request.getModel().getString("xxxxApplication.answer");
-		String xxxx = request.getModel().getString("xxxxApplication.xxxx");
-		String password = request.getModel().getString("xxxxApplication.password");
+		if (this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) != 0) {
+			String answer = request.getModel().getString("xxxxApplication.answer");
+			String xxxx = request.getModel().getString("xxxxApplication.xxxx");
+			String password = request.getModel().getString("xxxxApplication.password");
 
-		if (!password.isEmpty()) {
-			Boolean answerBlank = !answer.trim().isEmpty();
-			Boolean xxxxBlank = !xxxx.trim().isEmpty();
-
-			errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
-			errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
-		} else if (!xxxx.isEmpty()) {
-			Boolean answerBlank = !answer.trim().isEmpty();
-			Boolean xxxxBlank = !xxxx.trim().isEmpty();
-
-			errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
-			errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
-		} else {
-			if (!answer.isEmpty()) {
+			if (!password.isEmpty()) {
 				Boolean answerBlank = !answer.trim().isEmpty();
+				Boolean xxxxBlank = !xxxx.trim().isEmpty();
+
 				errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+				errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
+			} else if (!xxxx.isEmpty()) {
+				Boolean answerBlank = !answer.trim().isEmpty();
+				Boolean xxxxBlank = !xxxx.trim().isEmpty();
+
+				errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+				errors.state(request, xxxxBlank, "xxxxApplication.xxxx", "worker.application.form.error.xxxxBlank");
+			} else {
+				if (!answer.isEmpty()) {
+					Boolean answerBlank = !answer.trim().isEmpty();
+					errors.state(request, answerBlank, "xxxxApplication.answer", "worker.application.form.error.answerBlank");
+				}
 			}
 		}
 
@@ -136,18 +144,20 @@ public class WorkerApplicationCreateService implements AbstractCreateService<Wor
 		assert request != null;
 		assert entity != null;
 
-		if (!request.getModel().getString("xxxxApplication.answer").trim().isEmpty()) {
-			XxxxApplication xxxxApplication = new XxxxApplication();
-			xxxxApplication.setAnswer(request.getModel().getString("xxxxApplication.answer"));
-			xxxxApplication.setXxxx(request.getModel().getString("xxxxApplication.xxxx"));
-			if (!request.getModel().getString("xxxxApplication.password").trim().isEmpty()) {
-				xxxxApplication.setPassword(request.getModel().getString("xxxxApplication.password"));
-			} else {
-				xxxxApplication.setPassword(null);
-			}
-			this.repository.save(xxxxApplication);
+		if (this.repository.findXxxxByJob(request.getModel().getInteger("jobId")) != 0) {
+			if (!request.getModel().getString("xxxxApplication.answer").trim().isEmpty()) {
+				XxxxApplication xxxxApplication = new XxxxApplication();
+				xxxxApplication.setAnswer(request.getModel().getString("xxxxApplication.answer"));
+				xxxxApplication.setXxxx(request.getModel().getString("xxxxApplication.xxxx"));
+				if (!request.getModel().getString("xxxxApplication.password").trim().isEmpty()) {
+					xxxxApplication.setPassword(request.getModel().getString("xxxxApplication.password"));
+				} else {
+					xxxxApplication.setPassword(null);
+				}
+				this.repository.save(xxxxApplication);
 
-			entity.setXxxxApplication(xxxxApplication);
+				entity.setXxxxApplication(xxxxApplication);
+			}
 		} else {
 			entity.setXxxxApplication(null);
 		}

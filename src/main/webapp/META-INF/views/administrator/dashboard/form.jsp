@@ -5,6 +5,11 @@
 
 <acme:form>
 
+	<!-- Control -->
+	<acme:form-double code="administrator.dashboard.form.label.jobsWithXxxx" path="jobsWithXxxx"/>
+	<acme:form-double code="administrator.dashboard.form.label.xxxxWithXxxxApplication" path="xxxxWithXxxxApplication"/>
+	<acme:form-double code="administrator.dashboard.form.label.applicationWithXxxxPassword" path="applicationWithXxxxPassword"/>
+
 	<!-- D02: -->
 	<acme:form-integer code="administrator.dashboard.form.label.numberAnnouncement" path="numberAnnouncement"/>
 	<acme:form-integer code="administrator.dashboard.form.label.numberCompanyRecords" path="numberCompanyRecords"/>
